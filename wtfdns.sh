@@ -7,6 +7,7 @@ echo -n "💩 Google-1: ";dig +short $1 @8.8.8.8
 echo -n "💩 Google-2: ";dig +short $1 @8.8.4.4
 echo -n "💩 Google-alt: ";dig +short $1 @208.67.222.222
 echo -n "💩 Google-alt: ";dig +short $1 @208.67.220.220
+echo -n "💩 Verisign: ";dig +short $1 @64.6.64.6
 echo -n "💩 IBM Quad 9: ";dig +short $1 @9.9.9.9
 echo -n "💩 Norton: ";dig +short $1 @199.85.126.10
 echo -n "💩 Google-2: ";dig +short $1 @199.85.127.10
