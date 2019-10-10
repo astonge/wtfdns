@@ -1,18 +1,19 @@
 ## What The Fuck, DNS?
 
 $ ./wtfdns.sh facebook.com
-* 💩 Cloudflare-1: 57.240.3.35
-* 💩 Cloudflare-2: 57.240.3.35
-* 💩 OpenDNS-1: 57.240.3.35
-* 💩 OpenDNS-2: 57.240.3.35
-* 💩 Google-1: 57.240.3.35
-* 💩 Google-2: 57.240.3.35
-* 💩 Google-alt: 57.240.3.35
-* 💩 Google-alt: 57.240.3.35
-* 💩 IBM Quad 9: 57.240.3.35
-* 💩 Norton: 57.240.3.35
-* 💩 Google-2: 57.240.3.35
-* 💩 Seattle, WA: 57.240.3.35
-* 💩 Dallas, TX: 57.240.3.35
-* 💩 Washington, D.C.: 57.240.3.35
-* 💩 Quebec, Canada: 57.240.3.35
+google1:157.240.3.35
+google2:157.240.3.35
+quebec_canada:31.13.80.36
+google_2:31.13.93.35
+norton:31.13.93.35
+dallas:157.240.2.35
+verisign:157.240.14.35
+seattle:157.240.2.35
+opendns2:157.240.3.35
+washington_dc:31.13.66.35
+opendns1:157.240.3.35
+ibm_quad_9:157.240.3.35
+googlealt2:157.240.3.35
+googlealt1:157.240.3.35
+cloudflare1:157.240.3.35
+cloudflare2:157.240.3.35
