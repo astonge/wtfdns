@@ -15,10 +15,18 @@
             'google1'     => '8.8.8.8',
             'google2'     => '8.8.4.4',      
         ],
+        'cyberghost'      => [
+            'cyberghost1'   => '38.132.106.139',
+            'cyberghost2'   => '194.187.251.67'
+        ],
+        'IBM Quad 9'      => [
+            'IBM Quad 9'      => '9.9.9.9',
+            'IBM Quad 9 #2' => '149.112.112.112'
+        ],
         'tech companies'  => [
             'VeriSign'        => '64.6.64.6',
-            'IBM Quad 9'      => '9.9.9.9',
             'Norton'          => '199.85.127.10',
+            'FreeDNS'         => '45.33.97.5',
         ],
         'regions'         => [
             'Seattle'         => '66.93.87.2',
@@ -31,14 +39,24 @@
     function check_domain($domain, $server, $dns_ip) {
         $handle = popen("dig +timeout=1 +short {$domain} @{$dns_ip}|grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b'",'r');
         $response = fread($handle, 2096);
+        
+        // check for empty dig response
+        if (empty($response)) {
+            $response = '<span class="bg-red">ERROR</span>';
+        }
+
         render(<<<HTML
             <div>
-                <span class="px-3 bg-green text-black">$server</span> <span>\t$response</span>
+                <span class="px-3 bg-green text-black">$server</span> \t$response
             </div>
         HTML);
     }
 
-    // check for command line argument
+    // check for empty command line argument
+    if (empty($argv[1])) {
+        render('<div class="bg-red text-white">Provide host</div>');
+        exit(1);
+    }
 
     render('<div class="p-3 bg-red text-black">WTF DNS?</div>');
     foreach($dnsList as $dns_server => $dns_ip) {
