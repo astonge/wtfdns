@@ -1,6 +1,9 @@
 ## What The Fuck, DNS?
 
-```$ ./wtfdns.sh facebook.com
+### I'm not saying it's DNS, but it's DNS.
+
+```
+$ ./wtfdns.sh facebook.com
 google1:157.240.3.35
 google2:157.240.3.35
 quebec_canada:31.13.80.36
@@ -16,4 +19,5 @@ ibm_quad_9:157.240.3.35
 googlealt2:157.240.3.35
 googlealt1:157.240.3.35
 cloudflare1:157.240.3.35
-cloudflare2:157.240.3.35```
+cloudflare2:157.240.3.35
+```
