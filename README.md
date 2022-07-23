@@ -1,4 +1,4 @@
-## What The Fuck, DNS?
+## What The Fuck, DNS?!
 
 ### I'm not saying it's DNS, but it's DNS.
 
