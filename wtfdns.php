@@ -52,6 +52,15 @@
         HTML);
     }
 
+    $options = getopt("m");
+    if (!empty($options)) {
+        if (!$options["m"]) {
+            error_log('Getting MX Records');
+        }
+    } else {
+        error_log("Getting A Records");
+    }
+
     // check for empty command line argument
     if (empty($argv[1])) {
         render('<div class="bg-red text-white">Provide host</div>');
