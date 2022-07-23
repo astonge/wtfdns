@@ -36,30 +36,32 @@
         ],
     ];
 
-    function check_domain($domain, $server, $dns_ip) {
-        $handle = popen("dig +timeout=1 +short {$domain} @{$dns_ip}|grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b'",'r');
+    function check_domain($domain, $server, $dns_ip, array $options = null) {
+        if (!empty($options)) {
+            !$options["m"] ? $flag = "MX" : $flag = "";
+        } else {
+            $flag = "A";
+        }
+
+        $handle = popen("dig +timeout=1 +short {$flag} {$domain} @{$dns_ip}", 'r');
         $response = fread($handle, 2096);
         
         // check for empty dig response
         if (empty($response)) {
-            $response = '<span class="bg-red">ERROR</span>';
+            $response = '<span class="text-right bg-red">ERROR</span>';
         }
 
         render(<<<HTML
             <div>
-                <span class="px-3 bg-green text-black">$server</span> \t$response
+                <span class="px-3 text-right bg-green text-black">$server</span> <span>$response</span>
             </div>
         HTML);
     }
 
+    // Configure and read CLI flags
     $options = getopt("m");
-    if (!empty($options)) {
-        if (!$options["m"]) {
-            error_log('Getting MX Records');
-        }
-    } else {
-        error_log("Getting A Records");
-    }
+    // Set $domain based on existance of CLI options
+    empty($options) ? $domain = $argv[1] : $domain = $argv[2];
 
     // check for empty command line argument
     if (empty($argv[1])) {
@@ -75,10 +77,10 @@
                 <div class="px-1 uppercase bg-cyan text-black">$dns_server</div>
             HTML);
             foreach($dns_ip as $server => $ip) {
-                check_domain($argv[1], $server, $ip);
+                check_domain($domain, $server, $ip, $options);
             }
         } else {
-            check_domain($argv[1], $dns_server, $dns_ip);
+            check_domain($domain, $dns_server, $dns_ip, $options);
         }
     }
 
