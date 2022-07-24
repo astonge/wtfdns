@@ -1,9 +1,16 @@
 ## What The Fuck, DNS?!!
 
+Requirments:
+* Dig
+* Composer
+
+Install:
+```composer install```
+
 ### I'm not saying it's DNS, but it's DNS.
 
 ```
-05:11:05 asto@laradev wtfdns _|master _|_ php wtfdns.php google.com
+$ php wtfdns.php google.com
 
    WTF DNS?
 
