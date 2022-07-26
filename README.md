@@ -1,8 +1,8 @@
 ## What The Fuck, DNS?!!
 
 Requirments:
-* Dig
-* Composer
+* ```dig```
+* ```composer```
 
 Install:
 ```composer install```
