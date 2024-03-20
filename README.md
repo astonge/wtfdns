@@ -1,4 +1,6 @@
-## What The Fuck, DNS?!!
+## WTF, DNS?!!
+
+_it's always DNS_
 
 Requirments:
 * Dig
